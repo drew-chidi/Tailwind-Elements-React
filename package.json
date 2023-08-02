@@ -11,9 +11,9 @@
     "dist/**/*"
   ],
   "scripts": {
-    "start": "vite --open",
-    "dev": "vite",
-    "build": "vite build && node config/build.cjs && npm run copy:te-files && cd ./site && npm run build:tailwind",
+    "start": "node api.js && vite --open",
+    "dev": "node api.js && vite",
+    "build": "node api.js && vite build && node config/build.cjs && npm run copy:te-files && cd ./site && npm run build:tailwind",
     "build:demo": "cross-env --env.mode=demo --env.buildFile=umd vite build && cross-env --env.mode=demo node config/build.cjs",
     "build:docs": "cross-env --env.mode=docs vite build && cross-env --env.mode=docs node config/build.cjs && cd dist-docs && mdb publish --override",
     "copy:te-files": "node helpers/copyTeFiles.cjs",
